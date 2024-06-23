@@ -272,6 +272,8 @@ static int __init qnap_ec_is_chip_present(void)
   // Read the second identification byte from the output port
   byte2 = inb(0x2F);
 
+  pr_warn("qnap-ec chip identification bytes: %X %X", byte1, byte2);
+
   // Check if the identification bytes do not match the expected values
   if (byte1 != 0x85 || byte2 != 0x28)
   {
